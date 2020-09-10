@@ -11,8 +11,16 @@ public class ThrowsException {
     return c;
   }
 
-  public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException {
+  public static void main(String[] args) {
     ThrowsException throwsException = new ThrowsException();
-    throwsException.loadClass("a.txt", "java.lang.String");
+    try {
+      throwsException.loadClass("a.txt", "java.lang.String");
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
